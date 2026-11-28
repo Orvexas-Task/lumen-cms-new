@@ -1,5 +1,5 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const featuredArticles = [
@@ -88,13 +88,13 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-inner">
-        <a href="#" className="logo">
+        <Link to="/" className="logo">
           <span className="logo-icon">L</span>
           <span>LUMEN</span>
-        </a>
+        </Link>
 
         <div className="nav-links">
-          <a className="active" href="#">Home</a>
+          <Link className="active" to="/">Home</Link>
           <a href="#featured">Articles</a>
           <a href="#latest">Blogs</a>
           <a href="#topics">Topics</a>
@@ -107,8 +107,8 @@ function Navbar() {
             <input placeholder="Search ideas, people..." />
             <small>⌘ K</small>
           </div>
-          <a href="/login" className="signin">Sign in</a>
-          <a href="/signup" className="join-btn">Join Lumen</a>
+          <Link to="/login" className="signin">Sign in</Link>
+          <Link to="/signup" className="join-btn">Join Lumen</Link>
         </div>
       </div>
     </nav>
@@ -138,9 +138,9 @@ function Hero() {
             <a href="#featured" className="primary-btn">
               Explore Articles <span>→</span>
             </a>
-            <a href="/signup" className="secondary-btn">
+            <Link to="/signup" className="secondary-btn">
               Start Writing
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -285,9 +285,9 @@ function CommunityBanner() {
           </p>
         </div>
 
-        <a href="/signup" className="primary-btn">
+        <Link to="/signup" className="primary-btn">
           Join the community <span>→</span>
-        </a>
+        </Link>
       </div>
     </section>
   );
@@ -304,7 +304,7 @@ function Footer() {
 
         <div className="footer-links">
           <a href="#footer">About</a>
-          <a href="/signup">Write on Lumen</a>
+          <Link to="/signup">Write on Lumen</Link>
           <a href="#footer">Community guidelines</a>
           <a href="#footer">Help center</a>
         </div>

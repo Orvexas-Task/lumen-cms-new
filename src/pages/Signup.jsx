@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Eye,
   EyeOff,
@@ -16,6 +15,8 @@ import {
 import "./Signup.css";
 
 export default function Signup() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -108,6 +109,9 @@ export default function Signup() {
       // Frontend demonstration only.
       // Backend registration API will be connected later.
       setSuccess(true);
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     }
   };
 
@@ -251,25 +255,15 @@ export default function Signup() {
               <h2>You're ready to join Lumen!</h2>
 
               <p>
-                Your details passed frontend validation.
-                Connect the registration API to create your account.
+                Redirecting you to Sign in...
               </p>
 
               <button
                 type="button"
                 className="signup-submit"
-                onClick={() => {
-                  setSuccess(false);
-                  setFormData({
-                    name: "",
-                    email: "",
-                    password: "",
-                    confirmPassword: "",
-                    terms: false,
-                  });
-                }}
+                onClick={() => navigate("/login")}
               >
-                Back to signup
+                Go to Sign in now
               </button>
 
             </div>
@@ -424,8 +418,8 @@ export default function Signup() {
                   />
 
                   <span>
-                    I agree to the <a href="/terms">Terms of Service</a>
-                    {" "}and <a href="/privacy">Privacy Policy</a>.
+                    I agree to the <Link to="/terms">Terms of Service</Link>
+                    {" "}and <Link to="/privacy">Privacy Policy</Link>.
                   </span>
                 </label>
 
