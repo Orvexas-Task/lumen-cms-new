@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Eye,
   EyeOff,
@@ -17,6 +16,8 @@ import {
 import "./Login.css";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -74,6 +75,9 @@ export default function Login() {
       // Frontend demonstration only.
       // Authentication API will be connected later.
       setSuccess(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     }
   };
 
@@ -244,23 +248,15 @@ export default function Login() {
               <h2>Welcome back!</h2>
 
               <p>
-                Your form passed frontend validation.
-                Connect the authentication API to sign in to your account.
+                Redirecting you to Home...
               </p>
 
               <button
                 type="button"
                 className="login-submit"
-                onClick={() => {
-                  setSuccess(false);
-                  setFormData({
-                    email: "",
-                    password: "",
-                    remember: false,
-                  });
-                }}
+                onClick={() => navigate("/")}
               >
-                Back to login
+                Go to Home now
               </button>
 
             </div>
